@@ -1,0 +1,24 @@
+{
+  "name": "PepDev",
+  "version": "1.0.0",
+  "description": "Web developments classes code(MERN stack)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nitin251198/PepDev.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nitin251198/PepDev/issues"
+  },
+  "homepage": "https://github.com/nitin251198/PepDev#readme",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.5",
+    "request": "^2.88.2"
+  }
+}
