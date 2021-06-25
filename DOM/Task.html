@@ -1,0 +1,34 @@
+// Counter
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Document</title>
+</head>
+<body>
+   
+    <button id="inc">+</button>
+    <p>0</p>
+    <button id ="dc">-</button>
+
+        <script>
+
+            let incBtn = document.querySelector("#inc");
+            let dcBtn = document.querySelector("#dc");
+            let p = document.querySelector("p");
+
+            incBtn.addEventListener("click", function(){
+                let OldValuve= Number(p.innerText);
+                let Newvalue= OldValuve+1;
+                p.innerText= Newvalue;
+            })
+
+            dcBtn.addEventListener("click", function(){
+                let OldValuve= Number(p.innerText);
+                let Newvalue= OldValuve-1;
+                p.innerText= Newvalue;
+            })
+        </script>
+    
+</body>
+</html>
