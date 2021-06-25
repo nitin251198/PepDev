@@ -8,6 +8,7 @@ btn.addEventListener("click", function(){
     let task= input.value;
     input.value = "";
     if(task=="") return;
+    
 
     // ek new li element create kr rhe h
 
