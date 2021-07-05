@@ -1,10 +1,30 @@
 let addBtn = document.querySelector(".add");
 let body = document.querySelector("body");
-let grid = document.querySelector(".grid")
+let grid = document.querySelector(".grid");
 
 let colors = ["pink" , "green", "blue", "black"];
 
+let deleteBtn = document.querySelector(".delete");
+
+
+let deleteMode = false;
+
+deleteBtn.addEventListener("click", function(e){
+  if(e.currentTarget.classList.contains("delete-selected")){
+    e.currentTarget.classList.remove("delete-selected");
+    deleteMode = false;
+  }else{
+    e.currentTarget.classList.add("deleted-selected");
+    deleteMode = true;
+  }
+})
+
 addBtn.addEventListener("click", function () {
+
+  // delete mode ko bnd krna pdega nhi to add nhi ho payega task kyuki delete mode select rhega 
+      deleteBtn.classList.remove("delete-selected");
+      deleteMode = false;
+
     let premodal = document.querySelector(".modal")
 
     if(premodal !=null) return;
@@ -51,9 +71,11 @@ addBtn.addEventListener("click", function () {
           let ticketDiv = document.createElement("div");
           ticketDiv.classList.add("ticket");
 
+          let id = uid();
+
           ticketDiv.innerHTML = `<div class="ticket-color ${ticketColor}"> </div>
           <div class="ticket-id">
-              #aeD54
+              #${id}
           </div>
           <div class="actual-task">
              ${e.currentTarget.innerText}
@@ -78,6 +100,12 @@ addBtn.addEventListener("click", function () {
 
                 ticketColorDiv.classList.remove(currColor);
                 ticketColorDiv.classList.add(newColor);
+            });
+
+            ticketDiv.addEventListener("click", function(e){
+              if(deleteMode){
+                e.currentTarget.remove();
+              }
             });
 
         grid.append(ticketDiv);

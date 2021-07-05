@@ -73,7 +73,8 @@
   }
   
   .add:hover,
-  .delete:hover {
+  .delete:hover,
+  .delete-selected {
     background-color: #747d8c;
   }
   
