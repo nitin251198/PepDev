@@ -9,6 +9,14 @@ let deleteBtn = document.querySelector(".delete");
 
 let deleteMode = false;
 
+if(localStorage.getItem("AllTickets") == undefined){
+  let allTickets = {};
+
+  allTickets = JSON.stringify(allTickets);
+
+  localStorage.setItem("AllTickets", allTickets);
+}
+
 deleteBtn.addEventListener("click", function(e){
   if(e.currentTarget.classList.contains("delete-selected")){
     e.currentTarget.classList.remove("delete-selected");
