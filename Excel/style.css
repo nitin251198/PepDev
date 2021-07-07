@@ -4,101 +4,140 @@
   
   body {
     margin: 0;
+    font-family: "Montserrat", sans-serif;
   }
   
   .container {
     height: 100vh;
-    background-color: aqua;
   }
   
   .title-section {
-      outline: none;
-    background-color: blue;
+    outline: none;
     height: 4%;
+    background-color: #27ae60;
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
-    
   }
-
-  .menu-bar-section{
-    background-color: #295eaf;
+  
+  .menu-bar-section {
     height: 4%;
+    background-color: white;
     display: flex;
     align-items: center;
   }
-
-  .menu-bar-section div{
-      margin-left: 20px;
-      columns: white;
+  
+  .menu-bar-section div {
+    margin-left: 20px;
+    color: black;
   }
-
-  .menu-options-section{
+  
+  .menu-options-section {
     height: 8%;
-    background-color: brown;
-}
-
-.formula-section{
+    background-color: #2ecc71;
+  }
+  
+  .formula-section {
     height: 4%;
-    background-color: cadetblue;
     display: flex;
-}
-
-.formula-section .selected-cell-div{
+  }
+  
+  .formula-section .selected-cell-div {
     height: 100%;
     width: 20%;
-    background-color: rgb(86, 160, 12);
     display: flex;
     justify-content: center;
+    border: 1px solid;
     align-items: center;
-}
-
-.formula-section input{
+  }
+  
+  .formula-section input {
     display: block;
     width: 80%;
     height: 100%;
-    border: none;
+    border: 1px solid;
     outline: none;
-}
-
-.grid{
+  }
+  
+  .grid {
     height: 76%;
-    background-color: yellow;
     overflow: auto;
-}
-
-.sheets-section{
+    position: relative;
+  }
+  
+  .sheets-section {
     height: 4%;
-    background-color: blueviolet;
-}
-
-.blank-corner{
+    background-color: #2ecc71;
+  }
+  
+  .blank-corner {
     height: 30px;
     width: 30px;
     background-color: gray;
-}
-
-.row-number-section{
+    position: fixed;
+    top: 20vh;
+    left: 0;
+  }
+  
+  .row-number-section {
     display: inline-block;
-}
-
-.row-number{
+    position: fixed;
+    top: calc(20vh + 30px);
+    left: 0;
+  }
+  
+  .row-number {
     height: 30px;
     width: 30px;
-    background-color: green;
+    background-color: #27ae60;
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid;
-}
-
-.column-tag-section{
+    border: none;
+    border-bottom: 1px solid;
+  }
+  
+  .column-tag-section {
     height: 30px;
     position: fixed;
-    background-color: bisque;
+    background: bisque;
     top: 20vh;
-    width: 100vw;
     left: 30px;
-}
+    display: flex;
+  }
+  
+  .column-tag {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    flex-shrink: 0;
+    height: 30px;
+    background-color: #27ae60;
+    border: none;
+    border-right: 1px solid;
+    color: white;
+  }
+  
+  .cell-section {
+    height: calc(76vh - 30px);
+    width: calc(100vw - 30px);
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    overflow: auto;
+  }
+  
+  
+  .cell{
+    width: 80px;
+    height: 30px;
+    border: 1px solid;
+    flex-shrink: 0;
+  }
+  
+  .row{
+    display: flex;
+  }
