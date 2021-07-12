@@ -1,5 +1,12 @@
 let rowNumberSection = document.querySelector(".row-number-section");
 
+
+let formulaBarSelectedCellArea = document.querySelector(".selected-cell-div");
+
+
+let lastCell;
+
+
 for (let i = 1; i <= 100; i++) {
   let div = document.createElement("div");
   div.innerText = i;
@@ -42,9 +49,31 @@ for (let i = 1; i <= 100; i++) {
 
     let cellDiv = document.createElement("div");
 
+     // cellDiv.contentEditable = true;
+
+    cellDiv.setAttribute("contentEditable", true);
+
     cellDiv.classList.add("cell");
 
+    // cellDiv.setAttribute("data-address", cellAddress);
+
     cellDiv.setAttribute("data-address", cellAddress);
+    
+    cellDiv.addEventListener("click", function(e){
+      if(lastCell){
+        lastCell.classList.remove("cell-selected");
+
+      }
+
+      e.currentTarget.classList.add("cell-selected");
+
+      lastCell= e.currentTarget;
+
+      let currCellAddress = e.currentTarget.getAttribute("data-address");
+
+      formulaBarSelectedCellArea.innerText = currCellAddress;
+    })
+
     rowDiv.append(cellDiv);
   }
 
