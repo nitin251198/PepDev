@@ -8,6 +8,12 @@ let captureBtn = document.querySelector("#capture");
       let isRecording = false;
 
       captureBtn.addEventListener("click", function(){
+          let innerSpan = captureBtn.querySelector("span");
+
+          innerSpan.classList.add("capture-animation");
+          setTimeout(function()  {
+              innerSpan.classList.remove("capture-animation");
+          }, 1000);
           let canvas = document.createElement("canvas");
           canvas.width = videoPlayer.videoWidth;
           canvas.height = videoPlayer.videoHeight;
@@ -26,14 +32,17 @@ let captureBtn = document.querySelector("#capture");
       })
 
       recordBtn.addEventListener("click", function () {
+        let innerSpan = recordBtn.querySelector("span");
         if(isRecording){
             //recording ko stop krna h
             mediaRecorder.stop()
             isRecording = false
+            innerSpan.classList.remove("record-animation");
         }else{
             //recording shuru krni hai 
             mediaRecorder.start()
             isRecording = true
+            innerSpan.classList.add("record-animation");
         }
       });
 
