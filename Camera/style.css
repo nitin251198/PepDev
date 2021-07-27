@@ -113,7 +113,9 @@
     top: 0;
     z-index: 1;
   }
-  
+
+
+  /* for animation uses keyframes */
   @keyframes shrinkDownUp {
     0% {
       transform: scale(1);
