@@ -1,21 +1,54 @@
-//database version signifies how many changes my database has been through
+let opnBtn = document.querySelector("#open");
 
-let req = indexedDB.open("Notes",1);
+let addBtn = document.querySelector("#add");
 
-req.addEventListener("success", function(){
-    console.log(1);
-    let db = req.result;
+let input = document.querySelector("input");
+
+let db;
+
+let tempData = [
+  { cId: 2423534534, note: "this is note 1" },
+  { cId: 2426634534, note: "this is note2" },
+  { cId: 2113534534, note: "this is note 3" },
+];
+
+addBtn.addEventListener("click", function () {
+  if (!db) {
+    alert("database has not been opened yet");
+    return;
+  }
+
+  let value = input.value;  // input box ki value 
+  input.value = "";
+
+  let tx = db.transaction("csNotes", "readwrite");  // transaction lgai database pr usko read or write krne k liye
+
+  let csNotesObjectStore = tx.objectStore("csNotes");   // transaction ki hlp se db ko access kia
+
+  let data = {                              
+    note: value,
+    cId: Date.now(),
+  };                        // data ya notes store kiye data object m jo ki js ka object h kyuki IndexedDB me Js obj hi store hote h
+
+  csNotesObjectStore.add(data); // db m add kr di value
 });
 
-//kuch bhi craetion ya fir update ka kaam ho to ye wala event chlega
+opnBtn.addEventListener("click", function () {
+  let req = indexedDB.open("Notes", 1);
 
-req.addEventListener("upgradeneeded", function(){
-    console.log(2);
-
-    let db = req.result;
+  req.addEventListener("success", function () {
+    db = req.result;
     console.log(db);
-});
+    alert("successfully opened");
+  });
 
-req.addEventListener("error", function(){
-    console.log(3);
+  req.addEventListener("upgradeneeded", function () {
+    db = req.result;
+
+    db.createObjectStore("csNotes", { keyPath: "cId" }); // db m object create kia csNotes krke aur usko Cid de di 
+  });
+
+  req.addEventListener("error", function () {
+    alert("error in opening the db");
+  });
 });
