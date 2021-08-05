@@ -5,6 +5,26 @@ function double(x){
 }
 
  let ansArr = a.map(double);
-
+console.log("Original map Function");
 console.log(a);
 console.log(ansArr);
+
+
+//  myMap
+
+function myMap(arr, f){
+    let ans = [];
+
+    for(let i=0; i<arr.length; i++){
+        ans.push(f(arr[i]));
+    }
+
+    return ans;
+}
+
+
+
+console.log("created map Function");
+console.log(a);
+console.log(myMap(a, double));
+
