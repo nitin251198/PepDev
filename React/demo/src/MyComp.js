@@ -21,10 +21,29 @@ import React from "react";
 // class based component
 
 class MyComp extends React.Component{
+
+    state = {
+        Number: 0,
+    };
+
     render = () =>{
         return(
             <div>
-                <h1>Hello this is class based component</h1>
+                <button onClick = { ()=>{
+                    this.setState({Number: this.state.Number + 1})
+                }}>
+                    increment
+                    
+                    </button>
+                    <button onClick = { ()=>{
+                    this.setState({Number: this.state.Number - 1})
+                }}>
+                    decrement
+                    
+                    </button>
+
+                <h1>{this.state.Number}</h1>
+
             </div>
         );
 
