@@ -35,14 +35,16 @@ class MyComp extends React.Component{
                     increment
                     
                     </button>
-                    <button onClick = { ()=>{
+                   
+
+                <h1>{this.state.Number}</h1>
+
+                <button onClick = { ()=>{
                     this.setState({Number: this.state.Number - 1})
                 }}>
                     decrement
                     
                     </button>
-
-                <h1>{this.state.Number}</h1>
 
             </div>
         );
