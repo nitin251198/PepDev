@@ -1,6 +1,6 @@
 //import './App.css';
 
-function App() {
+let  App = () => {
   return (
     <div >
       <h1>First React App</h1>
