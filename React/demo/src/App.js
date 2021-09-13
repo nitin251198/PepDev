@@ -32,9 +32,13 @@ class App extends React.Component {
         />
 
         <ul>
-          {this.state.tasks.map((el) =>{
-            return <li>{el}</li>
-          })}
+          {
+          
+          this.state.tasks.map((el) =>{
+            return <li>{el} <button>Delete</button></li>
+          })
+          
+          }
         </ul>
       </div>
     );
